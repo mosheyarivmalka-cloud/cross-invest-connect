@@ -9,22 +9,39 @@ export const Hero = ({ language }: HeroProps) => {
   const isRTL = language === 'he';
 
   const handleContactClick = () => {
-    console.log('Contact button clicked!');
-    alert('כפתור צור קשר נלחץ! הפונקציונליות תתווסף בקרוב');
-    // Scroll to contact section or open contact modal
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+    // Scroll to contact section
+    const contactSection = document.querySelector('section:has(h2)');
+    const contactSections = document.querySelectorAll('section');
+    let targetSection = null;
+    
+    // Find the contact section by looking for the contact form or contact heading
+    contactSections.forEach(section => {
+      const heading = section.querySelector('h2');
+      if (heading && (heading.textContent?.includes('Contact') || heading.textContent?.includes('דברו עמנו'))) {
+        targetSection = section;
+      }
+    });
+    
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const handleViewPropertiesClick = () => {
-    console.log('View Properties button clicked!');
-    alert('כפתור צפייה בנכסים נלחץ! הפונקציונליות תתווסף בקרוב');
-    // Scroll to properties section or navigate to properties page
-    const propertiesSection = document.getElementById('properties');
-    if (propertiesSection) {
-      propertiesSection.scrollIntoView({ behavior: 'smooth' });
+    // Scroll to properties section  
+    const propertiesSections = document.querySelectorAll('section');
+    let targetSection = null;
+    
+    // Find the properties section by looking for featured properties or properties heading
+    propertiesSections.forEach(section => {
+      const heading = section.querySelector('h2');
+      if (heading && (heading.textContent?.includes('Featured') || heading.textContent?.includes('נכסים מומלצים'))) {
+        targetSection = section;
+      }
+    });
+    
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
