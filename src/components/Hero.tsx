@@ -8,6 +8,30 @@ interface HeroProps {
 export const Hero = ({ language }: HeroProps) => {
   const isRTL = language === 'he';
 
+  const handleContactClick = () => {
+    console.log('Contact button clicked!');
+    // Scroll to contact section or open contact modal
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Fallback: alert for now to confirm button works
+      alert('צור קשר - הפונקציונליות תתווסף בקרוב');
+    }
+  };
+
+  const handleViewPropertiesClick = () => {
+    console.log('View Properties button clicked!');
+    // Scroll to properties section or navigate to properties page
+    const propertiesSection = document.getElementById('properties');
+    if (propertiesSection) {
+      propertiesSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Fallback: alert for now to confirm button works
+      alert('צפייה בנכסים - הפונקציונליות תתווסף בקרוב');
+    }
+  };
+
   const translations = {
     he: {
       title: 'מחברים בין משקיעים להזדמנויות',
@@ -66,20 +90,19 @@ export const Hero = ({ language }: HeroProps) => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button 
-              size="lg" 
-              className="bg-accent-gold hover:bg-accent-gold/90 text-accent-gold-foreground font-semibold px-8 py-4 text-lg shadow-elevated"
+            <button 
+              onClick={handleContactClick}
+              className="inline-flex items-center justify-center gap-2 bg-accent-gold hover:bg-accent-gold/90 text-accent-gold-foreground font-semibold px-8 py-4 text-lg shadow-elevated rounded-md transition-colors cursor-pointer"
             >
               {t.ctaPrimary}
               <ArrowIcon className="w-5 h-5 ml-2" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg"
+            </button>
+            <button 
+              onClick={handleViewPropertiesClick}
+              className="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 transition-all duration-300 px-8 py-4 text-lg font-semibold rounded-md cursor-pointer"
             >
               {t.ctaSecondary}
-            </Button>
+            </button>
           </div>
 
           {/* Stats */}
