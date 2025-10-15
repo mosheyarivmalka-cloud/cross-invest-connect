@@ -10,25 +10,21 @@ export const Hero = ({ language }: HeroProps) => {
 
   const handleContactClick = () => {
     console.log('Contact button clicked!');
+    alert('כפתור צור קשר נלחץ! הפונקציונליות תתווסף בקרוב');
     // Scroll to contact section or open contact modal
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      // Fallback: alert for now to confirm button works
-      alert('צור קשר - הפונקציונליות תתווסף בקרוב');
     }
   };
 
   const handleViewPropertiesClick = () => {
     console.log('View Properties button clicked!');
+    alert('כפתור צפייה בנכסים נלחץ! הפונקציונליות תתווסף בקרוב');
     // Scroll to properties section or navigate to properties page
     const propertiesSection = document.getElementById('properties');
     if (propertiesSection) {
       propertiesSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      // Fallback: alert for now to confirm button works
-      alert('צפייה בנכסים - הפונקציונליות תתווסף בקרוב');
     }
   };
 
