@@ -276,7 +276,9 @@ const Index = () => {
           <div className="container mx-auto px-4 text-center">
             <div className="flex items-center justify-center space-x-2 mb-4">
               <Globe className="w-8 h-8 text-accent-gold" />
-              <span className="text-2xl font-bold">Cross-Invest</span>
+              <span className="text-2xl font-bold">
+                {language === 'he' ? 'דירה בישראל' : 'Home in Israel'}
+              </span>
             </div>
             <p className="text-primary-foreground/80 mb-4">
               {language === 'he' 

@@ -48,7 +48,7 @@ export const Header = ({ language, onLanguageChange }: HeaderProps) => {
             </div>
             <div className={`font-bold text-xl ${isRTL ? 'mr-2' : 'ml-2'}`}>
               <span className="bg-gradient-hero bg-clip-text text-transparent">
-                Cross-Invest
+                {language === 'he' ? 'דירה בישראל' : 'Home in Israel'}
               </span>
             </div>
           </div>
