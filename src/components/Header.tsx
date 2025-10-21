@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Languages, Globe, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   language: 'he' | 'en';
@@ -42,7 +43,7 @@ export const Header = ({ language, onLanguageChange }: HeaderProps) => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-hero rounded-lg flex items-center justify-center">
               <Globe className="w-6 h-6 text-white" />
             </div>
@@ -51,25 +52,25 @@ export const Header = ({ language, onLanguageChange }: HeaderProps) => {
                 {language === 'he' ? 'דירה בישראל' : 'Home in Israel'}
               </span>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors font-medium">
+            <Link to="/" className="text-foreground hover:text-primary transition-colors font-medium">
               {t.home}
-            </a>
-            <a href="#invest-israel" className="text-foreground hover:text-primary transition-colors font-medium">
+            </Link>
+            <Link to="/invest-israel" className="text-foreground hover:text-primary transition-colors font-medium">
               {t.investIsrael}
-            </a>
-            <a href="#invest-usa" className="text-foreground hover:text-primary transition-colors font-medium">
+            </Link>
+            <Link to="/invest-usa" className="text-foreground hover:text-primary transition-colors font-medium">
               {t.investUSA}
-            </a>
-            <a href="#sell" className="text-foreground hover:text-primary transition-colors font-medium">
+            </Link>
+            <Link to="/sell-property" className="text-foreground hover:text-primary transition-colors font-medium">
               {t.sellProperty}
-            </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors font-medium">
+            </Link>
+            <Link to="/about" className="text-foreground hover:text-primary transition-colors font-medium">
               {t.about}
-            </a>
+            </Link>
           </nav>
 
           {/* Contact & Language */}
